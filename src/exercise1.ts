@@ -32,10 +32,10 @@ export default () => {
   
   let isReady;
   isReady = true;
+  isReady = 1;
   isReady = 'true';
-  isReady = 0;
 
-  // console.log('[Exercise 1.3]', isReady);
+  console.log('[Exercise 1.3]', `You are ${isReady ? 'ready' : 'not ready'}!`);
 
   // ======== Exercise 1.4 ========
   // - Fix mistyped values
@@ -46,7 +46,7 @@ export default () => {
   isMark = 'false';
   isMark = '';
 
-  // console.log('[Exercise 1.4]', `${isMark ? 'Oh, hi Mark' : 'Who are you?'}`);
+  console.log('[Exercise 1.4]', `${isMark ? 'Oh, hi Mark' : 'Who are you?'}`);
 
   // ======== Exercise 1.5 ========
   // Goals:
@@ -77,7 +77,7 @@ export default () => {
 
   members[0] = '12345';
 
-  // console.log('[Exercise 1.5]', typeof members[0] === 'number');
+  console.log('[Exercise 1.5]', `Passed? ${typeof members[0] === 'number'}`);
 
 
   // ======== Exercise 1.6 ========
@@ -85,9 +85,8 @@ export default () => {
   // the first entry is a name and the second is a quantity.
 
   // Goals:
-  //
 
-  let inventoryItem = ['fidget spinner', 11];
+  let inventoryItem = ['fidget spinner', '11'];
 
   const message = addInventory(inventoryItem[0], inventoryItem[1]);
 
@@ -95,5 +94,5 @@ export default () => {
     return `Added ${quantity} ${name}s to inventory.`;
   }
 
-  console.log('message', message);
+  console.log('[Exercise 1.6]', message);
 }
