@@ -1,3 +1,3 @@
 export default (): void => {
-  console.log('example1');
+  console.log('example1 from github');
 }
