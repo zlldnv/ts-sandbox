@@ -8,22 +8,50 @@
 export default () => {
   // ======== Exercise 1.1 ========
   // Goals:
-  // - Fix any of the TypeScript compile-time errors
+  // - Fix errors
  
   let pi = '3.14159';
   let tau = pi * 2;
-  console.log(`${tau} is ${pi} times two.`);
+  
+  console.log('[Exercise 1.1]', `${tau} is ${pi} times two.`);
 
   // ======== Exercise 1.2 ========
   // Goals:
-  // - Add explicit type annotations
+  // - Fix type annotations
 
-  let pie: number = 'blueberry';
-  console.log(`I like to eat ${pie} pie.`);
+  let pie: symbol;
+  
+  pie = 'blueberry';
+
+  console.log('[Exercise 1.2]', `I like to eat ${pie} pie.`);
 
   // ======== Exercise 1.3 ========
   // Goals:
-  // - Add explicit type annotations / fix errors where possible
+  // - Add type annotations (as explicit as possible)
+  // - Look how bad the code completion is w/ `any` types 😱
+  
+  let isReady;
+  isReady = true;
+  isReady = 'true';
+  isReady = 0;
+
+  // console.log('[Exercise 1.3]', isReady);
+
+  // ======== Exercise 1.4 ========
+  // - Fix mistyped values
+  // - Add type annotations (as explicit as possible)
+
+  let isMark: boolean;
+  isMark = 1;
+  isMark = 'false';
+  isMark = '';
+
+  // console.log('[Exercise 1.4]', `${isMark ? 'Oh, hi Mark' : 'Who are you?'}`);
+
+  // ======== Exercise 1.5 ========
+  // Goals:
+  // - Add type annotations (as explicit as possible)
+  // - Fix errors (if applicable)
 
   const integer = 6;
   const float = 6.66;
@@ -35,32 +63,37 @@ export default () => {
   const largestNumber = Number.MAX_VALUE;
   const largestestNumber = Infinity;
 
-  const members = [integer, float, hex, binary, octal, negativeZero, actuallyNumber, largestNumber, largestestNumber];
-  
+  const members: any[] = [
+    integer,
+    float,
+    hex,
+    binary,
+    octal,
+    negativeZero,
+    actuallyNumber,
+    largestNumber,
+    largestestNumber
+  ];
+
   members[0] = '12345';
 
-  const newMember = members[1];
-  newMember.toExponential(2);
+  // console.log('[Exercise 1.5]', typeof members[0] === 'number');
 
-  // ======== Exercise 1.3 ========
+
+  // ======== Exercise 1.6 ========
+  // We want to represent an inventoryItem in a structure where
+  // the first entry is a name and the second is a quantity.
+
   // Goals:
-  // - Understand 'any' type
-  // - Add explicit annotations where possible
-  // - Look how bad code completion is on `any` types 😱
-  
-  let isReady;
-  isReady = true;
-  isReady = 'true';
-  isReady = 0;
+  //
 
-  // let's initialize with an explicit type
-  let isCool: boolean;
+  let inventoryItem = ['fidget spinner', 11];
 
-  isCool = 1;
-  isCool = 'false';
+  const message = addInventory(inventoryItem[0], inventoryItem[1]);
 
-  const dog: string = 1 + 'poodle';
-  // the compiler knows that the resulting type of
-  // the expression `1 + 'poodle'` will ALWAYS be a string
+  function addInventory(name: string, quantity: number): string {
+    return `Added ${quantity} ${name}s to inventory.`;
+  }
 
+  console.log('message', message);
 }
