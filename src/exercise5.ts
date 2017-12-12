@@ -12,5 +12,5 @@ export default () => {
   // Goals:
   // • 
 
-  console.log('[Exercise 5.1]', 'sup');
+  console.log('[Exercise 5.1]', '');
 }

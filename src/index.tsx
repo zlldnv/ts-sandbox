@@ -8,8 +8,8 @@
 // Now, ready to do you some TypeScript?!
 
 // ======== Exercise 1: Basic types ========
-// import exercise1 from './exercise1';
-// exercise1();
+import exercise1 from './exercise1';
+exercise1();
 
 // ======== Exercise 2: Functions ==========
 // import exercise2 from './exercise2';
@@ -45,8 +45,8 @@
 // solution1();
 
 // ======== Solution 2: Functions ==========
-import solution2 from './solutions/solution2';
-solution2();
+// import solution2 from './solutions/solution2';
+// solution2();
 
 // ======== Solution 3: Classes ============
 // import solution3 from './solutions/solution3';

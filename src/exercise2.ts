@@ -72,25 +72,82 @@ export default () => {
   logMessage('[Exercise 2.4] ✅');
 
   // ======== Exercise 2.5 ========
-  // Here we've initialized two variables with function types
+  // Here we've initialized two variables with function types.
+  // Later, we assign them actual functions/values.
   // Goals:
   // • Fix the errors
 
-  let myMultiply: (val1: number, val2: number) => number;
-  let myEchoString: (val: string) => string;
+  let multiply: (val1: number, val2: number) => number;
+  let echoString: (val: string) => string;
 
-  myMultiply = function(message: string): string {
+  multiply = function(message: string): string {
     return message;
   }
 
-  myEchoString = function(x: number, y: number): number {
+  echoString = function(x: number, y: number): number {
     return x * y;
   }
 
-  console.log('[Exercise 2.5]', myEchoString(`5 x 5 equals ${myMultiply(5, 5)}`));
+  console.log('[Exercise 2.5]', echoString(`5 x 5 equals ${multiply(5, 5)}`));
 
   // ======== Exercise 2.6 ========
-  // For a given word, we are computing its Scrabble® score.
+  // Goals:
+  // • Make `echo` into a generic function.
+  // • Once made generic, the below examples should highlight as compile-time errors.
+  // • Compare the editor's code completion for the generic function to that of the 
+  //   original function that used `any`.
+  // • Finally, fix the values 
+
+  function echo(value: any): any {
+    return value;
+  }
+
+  // These should be caught by TypeScript (instead of causing runtime errors!):
+  const two: string = echo(234).charAt(0);
+  const twoExp: number = echo('2').toExponential();
+  const ULL: string = echo(null).toUpperCase().substr(1);
+
+  console.log('[Exercise 2.6]', two, twoExp, ULL);
+
+  // ======== Exercise 2.7 (EXTRA CREDIT) ========
+  // Currently, our function `addItemToCollection` accepts *any* item and adds it,
+  // (indiscriminantly) to *any* kind of array.
+  //
+  // A couple problems with this:
+  // 
+  //     1. The `any` type causes us to lose ALL typing information on our params.
+  //     2. This looseness has come back to back to bite us during runtime. (Just 
+  //        look at `incrementByTwo`!)
+  //
+  // Goals:
+  // • Implement `addItemToCollection` as a generic function. (This should create
+  //   compile-time errors in places where incorrect values are being added to 
+  //   a given collection. Fix these values to the correct types.)
+  // • Once made generic, `addItemToCollection` should be *generic* enough to operate
+  //   on items and collections of any type while continuing to enforce that they match.
+
+  const numberCollection: number[] = [];
+  const stringCollection: string[] = [];
+  
+  function addItemToCollection(item, collection) {
+    collection.push(item);
+    return collection;
+  }
+  
+  // Add some stuff
+  addItemToCollection('🏚', stringCollection);
+  addItemToCollection('horse', stringCollection);
+
+  addItemToCollection('1', numberCollection);
+  addItemToCollection('2', numberCollection);
+  addItemToCollection('3', numberCollection);
+
+  const incrementedByTwo = numberCollection.map((num) => num + 2);
+  
+  console.log('[Exercise 2.7]', `[${incrementedByTwo}] should deeply equal [3,4,5]`);
+
+  // ======== Exercise 2.8 (EXTRA CREDIT) ========
+  // For a given word, we compute its Scrabble® score.
   // Goals:
   // • Add type annotations wherever possible
 
@@ -119,5 +176,5 @@ export default () => {
     }, 0);
   }
 
-  console.log('[Exercise 2.6]', `zoo is worth ${computeScore('zoo')} points.`);
+  console.log('[Exercise 2.8]', `zoo is worth ${computeScore('zoo')} points.`);
 }
