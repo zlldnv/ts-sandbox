@@ -96,9 +96,9 @@ export default () => {
   }
 
   // These should be caught by TypeScript (instead of causing runtime errors!):
-  const two: string = echo('234').charAt(0);
-  const twoExp: string = echo(2).toExponential();
-  const ULL: string = echo('null').toUpperCase().substr(1);
+  const two: string = echo<string>('234').charAt(0);
+  const twoExp: string = echo<number>(2).toExponential();
+  const ULL: string = echo<string>('null').toUpperCase().substr(1);
 
   console.log('[Solution 2.6]', two, twoExp, ULL);
 

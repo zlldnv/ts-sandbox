@@ -8,8 +8,8 @@
 // Now, ready to do you some TypeScript?!
 
 // ======== Exercise 1: Basic types ========
-import exercise1 from './exercise1';
-exercise1();
+// import exercise1 from './exercise1';
+// exercise1();
 
 // ======== Exercise 2: Functions ==========
 // import exercise2 from './exercise2';
@@ -23,11 +23,11 @@ exercise1();
 // import exercise4 from './exercise4';
 // exercise4();
 
-// ======== Exercise 4: Code flow  =========
-// import exercise5 from './exercise5';
-// exercise5();
+// ======== Exercise 5: Code flow  =========
+import exercise5 from './exercise5';
+exercise5();
 
-// TBD...
+// ======== Exercise 6: Unions  ============
 // import exercise6 from './exercise6';
 // exercise6();
 
@@ -56,10 +56,10 @@ exercise1();
 // import solution4 from './solutions/solution4';
 // solution4();
 
-// ======== Solution 4: Code flow  =========
+// ======== Solution 5: Code flow  =========
 // import solution5 from './solutions/solution5';
 // solution5();
 
-// TBD...
+// ======== Exercise 6: Unions  ============
 // import solution6 from './solutions/solution6';
 // solution6();
