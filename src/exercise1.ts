@@ -81,18 +81,23 @@ export default () => {
 
 
   // ======== Exercise 1.6 ========
-  // We want to represent an inventoryItem in a structure where
+  // We want to represent an inventory item in a structure where
   // the first entry is a name and the second is a quantity.
 
-  // Goals:
+  // Goal:
+  // - Add type annotations (as explicit as possible)
+  // - Fix errors (if applicable)
 
-  let inventoryItem = ['fidget spinner', '11'];
+  // Note: for types `foo` and `bar`, the type
+  // `foo | bar` indicates `foo` OR `bar`
 
-  const message = addInventory(inventoryItem[0], inventoryItem[1]);
+  const inventoryItem = ['fidget spinner', '11'];
+
+  const msg = addInventory(inventoryItem[0], inventoryItem[1]);
+
+  console.log('[Exercise 1.6]', msg);
 
   function addInventory(name: string, quantity: number): string {
     return `Added ${quantity} ${name}s to inventory.`;
   }
-
-  console.log('[Exercise 1.6]', message);
 }
