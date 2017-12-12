@@ -26,3 +26,7 @@ exercise1();
 // ======== Exercise 4: Code flow  =========
 // import exercise5 from './exercise5';
 // exercise5();
+
+// TBD...
+// import exercise6 from './exercise6';
+// exercise6();
