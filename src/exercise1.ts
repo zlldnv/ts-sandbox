@@ -88,10 +88,10 @@ export default () => {
 
   const sequence = Array.from(Array(10).keys());
   const animals = ['pangolin', 'aardvark', 'echidna', 'binturong'];
-  const numbersAndStrings = [1, 'one', 2, 'two', 3, 'three'];
+  const stringsAndNumbers = [1, 'one', 2, 'two', 3, 'three'];
 
   // extra credit
-  const allMyArrays = [sequence, animals, numbersAndStrings];
+  const allMyArrays = [sequence, animals, stringsAndNumbers];
 
   console.log(allMyArrays);
 
