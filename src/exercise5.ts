@@ -5,7 +5,7 @@
 // Objectives: 
 // • Understand how TypeScript performs code flow analysis
 // • Create and apply union and intersection types
-// • Use type guards
+// • Use basic type guards (narrowing types w/ typeof, instanceof, etc.)
 
 export default () => {
 
@@ -98,11 +98,41 @@ export default () => {
 
   // ======== Exercise 5.3 ========
   // Goals:
-  // • 
+  // • Add type annotations (`any` excluded)
+  // • Inspect inferred type of `element` in different code branches
+  // • Extra credit: turn `flatten` into a generic function
+
+  const numbers = [1, 2, 3, [44, 55], 6, [77, 88], 9, 10];
+
+  function flatten(array) {
+    const flattened = [];
+
+    for (const element of array) {
+      if (Array.isArray(element)) {
+        element; // any[]
+        flattened.push(...element);
+      } else {
+        element; // any
+        flattened.push(element);
+      }
+    }
+
+    return flattened;
+  }
+
+  const flattenedNumbers = flatten(numbers);
+
+  console.log('[Exercise 5.3]', flattenedNumbers);
 
   // ======== Exercise 5.4 ========
+  // 
   // Goals:
-  // • 
+  // • Birds and Fish both lay eggs. Only Birds fly. Only Fish swim. Define
+  //   two new types: `BirdLike` and `FishLike` based on these traits.
+  // • Create a type alias for `Bird OR Fish` called `Animal`
+  // • Use an `instanceof` type guard in `interrogateAnimal` to allow the fishes 
+  //   to swim the and birds to fly.
+  // • Add any missing type annotations, being as explicit as possible.
 
   interface EggLayer {
     layEggs(): void;
@@ -116,9 +146,7 @@ export default () => {
     swim(depth: number): void;
   }
 
-  type BirdLike = Flyer & EggLayer;
-  type FishLike = Swimmer & EggLayer;
-  type Pet = Bird | Fish;
+  // add type alias(es) here
 
   class Bird implements BirdLike {
     constructor(public species: string) {}
@@ -144,37 +172,23 @@ export default () => {
     }
   }
 
-  function interrogatePet(pet: Pet = getRandomAnimal()): string {
-    if (pet instanceof Fish) {
-      pet.swim(10);
-    } else if (pet instanceof Bird) {
-      pet.fly(10);
-    }
-
-    return pet.species;
-  }
-  
-  // // alternatively:
-  // function interrogatePet2(pet: Pet = getRandomAnimal()): string {
-  //   if ((<Fish>pet).swim) {
-  //     (<Fish>pet).swim(10);
-  //   }
-  //   else {
-  //     (<Bird>pet).fly(10);
-  //   }
-
-  //   return pet.species;
-  // }
-
-  function getRandomAnimal(): Pet {
-    const animals: Pet[] = [
+  function getRandomAnimal() {
+    const animals = [
       new Bird('puffin'),
       new Bird('kittiwake'),
       new Fish('sea robin'),
       new Fish('leafy seadragon'),
     ];
+
     return animals[Math.floor(Math.random() * animals.length)];
   }
 
-  console.log('[Exercise 5.4]', `We've got a ${interrogatePet()} on our hands!`);
+  function interrogateAnimal(animal = getRandomAnimal()) {
+    animal.swim(10) // call only if it is a fish
+    animal.fly(10); // call only if it is a bird
+
+    return animal.species;
+  }
+
+  console.log('[Exercise 5.4]', `We've got a ${interrogateAnimal()} on our hands!`);
 }
