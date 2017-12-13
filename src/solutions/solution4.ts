@@ -10,21 +10,32 @@
 export default () => {
   // ======== Exercise 4.1 ========
   // Goals:
-  // • Create an interface `CartItem` and replace the param's type with it
+  // • Create an interface `CartItem` and replace the param type with it
   // • Make variantId optional
 
-  function addToCart(item: {id: number, title: string, variantId: number}) {
-    console.log('[Exercise 4.1]', `Adding "${item.title}" to cart.`);
+  interface CartItem {
+    id: number;
+    title: string;
+    variantId?: number;
   }
 
-  addToCart({id: 1, title: 'Concrete shoes'});
+  function addToCart(item: CartItem) {
+    console.log('[Exercise 4.1]', `Adding "${item.title}" to cart`);
+  }
+
+  addToCart({ id: 1, title: 'Concrete shoes' })
 
   // ======== Exercise 4.2 ========
   // Goals:
   // • Create and implement an interface on `Person` to ensure it always has accessible
   //   `name` and `age` member properties.
 
-  class Person {
+  interface Person {
+    name: string;
+    age: number;
+  }
+
+  class Person implements Person {
     constructor(public name: string, public age: number) {}
   }
 
@@ -45,6 +56,15 @@ export default () => {
   }
   // [/do not edit]
 
+  interface Coords {
+    latitude: number;
+    longitude: number;
+  }
+
+  interface City {
+    coords: Coords;
+  }
+
   const montreal = {
     coords: {
       latitude: 42.332,
@@ -55,36 +75,16 @@ export default () => {
 
   const tampa = {
     coords: {
-      latitude: '27.9478',
-      longitude: '-82.4584',
+      latitude: 27.9478,
+      longitude: -82.4584,
     },
     name: 'Tampa',
   };
 
   function getCityInfo(city: City) {
-    const coords = `(${city.coords.latitude.toFixed(3) }, ${city.coords.longitude.toFixed(3) })`;
+    const coords = `(${city.coords.latitude.toFixed(3)}, ${city.coords.longitude.toFixed(3)})`;
     return `${city.name.toUpperCase()} is located at ${coords}.`;
   }
 
-  // console.log('[Exercise 4.3]', `${getCityInfo(montreal)} \n\n ${getCityInfo(tampa)}`);
-
-  // ======== Exercise 4.3 ========
-  // Goals:
-  // • 
-
-  interface UserSchema {
-    readonly id: number;
-    name: string;
-  }
-
-  class User implements UserSchema {
-    constructor(public name: string, readonly id: number) {}
-  }
-
-  const user = new User('Dog', 1);
-
-  user.name = 'Harold';
-  user.id = 5;
-
-  console.log(`User:`, user)
+  console.log('[Exercise 4.3]', `${getCityInfo(montreal)} \n\n ${getCityInfo(tampa)}`);
 }

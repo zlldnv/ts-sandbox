@@ -14,7 +14,7 @@ export default () => {
   // • Add explicit return type to the greet method
 
   class MC {
-    greet(event = 'party') {
+    greet(event: string = 'party'): string {
       return `Welcome to the ${event}`;
     }
   }
@@ -29,7 +29,10 @@ export default () => {
   // • Add typed parameters for storing values
 
   class Person {
-    constructor(name, age) {
+    name: string;
+    age: number;
+
+    constructor(name: string, age: number) {
       this.name = name;
       this.age = age;
     }
@@ -46,12 +49,7 @@ export default () => {
   // • Reduce class to three lines of code while maintaining functionality
 
   class Employee {
-    title: string;
-    salary: number;
-    constructor(title: string, salary: number) {
-      this.title = title;
-      this.salary = salary;
-    }
+    constructor(public title: string, public salary: number) {}
   }
 
   const employee = new Employee('Engineer', 100000);
@@ -66,19 +64,19 @@ export default () => {
   // • Make it so that the sound member cannot be publicly accessed
 
   class Animal {
-    constructor(sound) {}
+    constructor(private sound: string) {}
     speak() {
       console.log('[Exercise 3.4]', this.sound);
     }
   }
 
-  class Dog {
+  class Dog extends Animal {
     constructor() {
       super('woof!');
     }
   }
 
-  class Cat {
+  class Cat extends Animal {
     constructor() {
       super('meow!');
     }
@@ -86,11 +84,11 @@ export default () => {
 
   const dog = new Dog();
   dog.speak();
-  console.log(dog.sound); // Should return error
+  // console.log(dog.sound); // Should return error (when uncommented)
 
   const cat = new Cat();
   cat.speak();
-  console.log(cat.sound); // Should return error
+  // console.log(cat.sound); // Should return error (when uncommented)
 
   // ======== Exercise 3.5 ========
   // Goals:
@@ -98,7 +96,7 @@ export default () => {
   //   manufacturer member
 
   class Furniture {
-    constructor(manufacturer: string = 'IKEA') {}
+    constructor(protected manufacturer: string = 'IKEA') {}
   }
 
   class Desk extends Furniture {
@@ -115,25 +113,24 @@ export default () => {
 
   const desk = new Desk();
   desk.kind();
-  desk.manufacturer; // Should return error
+  // desk.manufacturer; // Should return error (when uncommented)
 
   const chair = new Chair();
   chair.kind();
-  chair.manufacturer; // Should return error
+  // chair.manufacturer; // Should return error (when uncommented)
 
   // ======== Exercise 3.6 ========
   // Goals:
-  // • Eliminate the error without changing the references to `Student.school`
+  // • Eliminate the error in the introduction method
 
   class Student {
-    public school: string = 'Harry Herpson High School';
-    constructor(private name: string) {};
+    school: string = 'Harry Herpson High School';
+    constructor(private name: string) { };
     introduction() {
-      console.log('[Exercise 3.6]', `Hi, my name is ${this.name} and I attend ${Student.school}`);
+      console.log('[Exercise 3.6]', `Hi, my name is ${this.name} and I attend ${this.school}`);
     }
   }
 
   const student = new Student('Morty');
-  console.log(Student.school);
   student.introduction();
 }

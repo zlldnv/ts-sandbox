@@ -20,12 +20,12 @@
 // exercise3();
 
 // ======== Exercise 4: Interfaces =========
-// import exercise4 from './exercise4';
-// exercise4();
+import exercise4 from './exercise4';
+exercise4();
 
 // ======== Exercise 5: Code flow  =========
-import exercise5 from './exercise5';
-exercise5();
+// import exercise5 from './exercise5';
+// exercise5();
 
 // TBD...
 // import exercise6 from './exercise6';

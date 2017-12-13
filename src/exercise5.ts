@@ -14,7 +14,7 @@ export default () => {
   // depending on the code path.
   // Goals:
   // • Simply inspect the possible types by hovering over `text` to see
-  //   how the inferred type changes if the compiler can make safe assumptions
+  //   how the inferred type changes if assumptions can be safely made
   //   about the possible types within the given code path.
 
   function trimmedLength1(text: string | null | undefined) {
@@ -30,6 +30,22 @@ export default () => {
   }
 
   function trimmedLength2(text: string | null | undefined) {
+    text; // text: string | null | undefined
+
+    if (typeof text === 'string') {
+      text; // text: string
+
+      return text.trim().length;
+    } else if (text == null) {
+      text; // text: null | undefined (remember == coerces undefined)
+
+      return;
+    }
+
+    text; // text: never
+  }
+
+  function trimmedLength2(text: string | null | undefined) {
     if (text) {
       return text.trim().length;
     }
@@ -39,6 +55,7 @@ export default () => {
 
   function trimmedLength3(text: string | null | undefined) {
     if (!text) {
+      text;
       return;
     }
 
@@ -52,7 +69,7 @@ export default () => {
       return text.trim().length; // text: string
     }
 
-    text; // text: any (TS does not subtract types from `any`)
+    text; // text: any (note how TS does not subtract types from `any`)
   }
 
   console.log('[Exercise 5.0]', `${trimmedLength1("   hi     ")}`);
