@@ -27,7 +27,7 @@
 import exercise5 from './exercise5';
 exercise5();
 
-// ======== Exercise 6: Unions  ============
+// TBD...
 // import exercise6 from './exercise6';
 // exercise6();
 
@@ -60,6 +60,6 @@ exercise5();
 // import solution5 from './solutions/solution5';
 // solution5();
 
-// ======== Exercise 6: Unions  ============
+// TBD...
 // import solution6 from './solutions/solution6';
 // solution6();
