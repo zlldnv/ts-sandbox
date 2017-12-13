@@ -11,7 +11,18 @@ export default () => {
   // • 
 
   function fetchWord(): Promise<string> {
-    const words: string[] = ['frame', 'protective', 'remarkable', 'itchy', 'ruddy', 'pale', 'design', 'guarded', 'tiny', 'wrap'];
+    const words: string[] = [
+      'frame',
+      'protective',
+      'remarkable',
+      'itchy',
+      'ruddy',
+      'pale',
+      'design',
+      'guarded',
+      'tiny',
+      'wrap'
+    ];
 
     return new Promise((resolve) => {
       const randomWord = words[Math.floor(Math.random() * words.length)];

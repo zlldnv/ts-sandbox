@@ -29,24 +29,22 @@ export default () => {
 
   // ======== Exercise 1.3 ========
   // Goals:
-  // • Add type annotations (as explicit as possible)
+  // • Add a `boolean` type annotation
   // • Look how bad the code completion is w/ `any` type 😱
   
-  let isReady;
-  isReady = true;
-  isReady = 1;
-  isReady = 'true';
+  let isReady;      // inspect the default type by hovering over `isReady`
+  isReady = true;   // should be ok
+  isReady = 1;      // should error
+  isReady = 'true'; // should error
 
   console.log('[Exercise 1.3]', `You are ${isReady ? 'ready' : 'not ready'} to learn TypeScript!`);
 
   // ======== Exercise 1.4 ========
   // • Fix mistyped values
-  // • Add type annotations (as explicit as possible)
 
   let isMark: boolean;
-  isMark = 1;
-  isMark = 'false';
-  isMark = '';
+  isMark = 'true';
+  isMark = 0;
 
   console.log('[Exercise 1.4]', `${isMark ? 'Oh, hi Mark' : 'Who are you?'}`);
 
