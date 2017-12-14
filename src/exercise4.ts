@@ -37,7 +37,7 @@ export default () => {
   // • Create an interface `Coords` that has numeric `latitude` and `longitude` properties.
   // • Extend the existing interface `City` (without modifying it inline) by adding a
   //   `coords` property of type `Coords`.
-  // • Fix whatever is wrong with `tampa` (besides the fact it's Tampa 😉).
+  // • Fix whatever is wrong with `tampa`
 
   // [do not edit] (pretend this is coming from external `foo.d.ts` lib)
   interface City {
@@ -69,22 +69,23 @@ export default () => {
   // console.log('[Exercise 4.3]', `${getCityInfo(montreal)} \n\n ${getCityInfo(tampa)}`);
 
   // ======== Exercise 4.3 ========
+  // The id should not be writable.
   // Goals:
-  // • 
+  // • Prevent `id` from
 
   interface UserSchema {
-    readonly id: number;
     name: string;
+    id: number;
   }
 
   class User implements UserSchema {
-    constructor(public name: string, readonly id: number) {}
+    constructor(public name: string, public id: number) {}
   }
 
-  const user = new User('Dog', 1);
+  const user = new User('Homer', 1);
 
-  user.name = 'Harold';
-  user.id = 5;
+  user.name = 'Harold'; // OK
+  user.id = 5; // Should error
 
   console.log(`User:`, user)
 }

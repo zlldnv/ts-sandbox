@@ -4,8 +4,8 @@
 
 // Objectives: 
 // • Annotate primitive types, arrays, and 'any' types
-// • Analyze transpiler output
 // • Identify when type checking happens
+// • Analyze transpiler output
 
 export default () => {
   // ======== Exercise 1.1 ========
@@ -21,16 +21,16 @@ export default () => {
   // Goals:
   // • Fix type annotations
 
-  let pie: symbol;
+  let pie: object;
   
   pie = 'blueberry';
 
   console.log('[Exercise 1.2]', `I like to eat ${pie}-flavored pie.`);
 
   // ======== Exercise 1.3 ========
+  // Look how bad the code completion is w/ `any` type 😱
   // Goals:
   // • Add a `boolean` type annotation
-  // • Look how bad the code completion is w/ `any` type 😱
   
   let isReady;      // inspect the default type by hovering over `isReady`
   isReady = true;   // should be ok
@@ -38,15 +38,6 @@ export default () => {
   isReady = 'true'; // should error
 
   console.log('[Exercise 1.3]', `You are ${isReady ? 'ready' : 'not ready'} to learn TypeScript!`);
-
-  // ======== Exercise 1.4 ========
-  // • Fix mistyped values
-
-  let isMark: boolean;
-  isMark = 'true';
-  isMark = 0;
-
-  console.log('[Exercise 1.4]', `${isMark ? 'Oh, hi Mark' : 'Who are you?'}`);
 
   // ======== Exercise 1.5 ========
   // Goals:
