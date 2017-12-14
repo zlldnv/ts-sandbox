@@ -8,23 +8,23 @@
 // Now, ready to do you some TypeScript?!
 
 // ======== Exercise 1: Basic types ========
-// import exercise1 from './exercise1';
-// exercise1();
+import exercise1 from './Exercise_1_Basic_Types/exercise1';
+exercise1();
 
 // ======== Exercise 2: Functions ==========
-// import exercise2 from './exercise2';
+// import exercise2 from './Exercise_2_Functions/exercise2';
 // exercise2();
 
 // ======== Exercise 3: Classes ============
-// import exercise3 from './exercise3';
+// import exercise3 from './Exercise_3_Classes/exercise3';
 // exercise3();
 
 // ======== Exercise 4: Interfaces =========
-import exercise4 from './exercise4';
-exercise4();
+// import exercise4 from './Exercise_4_Interfaces/exercise4';
+// exercise4();
 
 // ======== Exercise 5: Code flow  =========
-// import exercise5 from './exercise5';
+// import exercise5 from './Exercise_5_Code_Flow/exercise5';
 // exercise5();
 
 // TBD...
