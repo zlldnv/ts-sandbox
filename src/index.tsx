@@ -32,11 +32,6 @@ exercise1();
 //   Solutions
 // ⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈
 
-// To keep the console relatively clean, you may
-// comment previous exercises as you progress.
-
-// Now, ready to do you some TypeScript?!
-
 // ======== Solution 1: Basic types ========
 // import solution1 from './Exercise_1_Basic_Types/solution1';
 // solution1();

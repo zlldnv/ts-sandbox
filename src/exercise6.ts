@@ -1,14 +1,11 @@
 // ⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇
-// ⏆⏆ Exercise X – async ⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆
+//   Exercise X – async stuff?
 // ⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈
 
 // Objectives: 
 // • 
 
 export default () => {
-  // ======== Exercise X.1 ========
-  // Goals:
-  // • 
 
   function fetchWord(): Promise<string> {
     const words: string[] = [
@@ -25,16 +22,16 @@ export default () => {
     ];
 
     return new Promise((resolve) => {
-      const randomWord = words[Math.floor(Math.random() * words.length)];
+      const randomWord: string = words[Math.floor(Math.random() * words.length)];
       setTimeout(() => resolve(randomWord), 1000);
     });
   }
 
-  async function logWords() {
-    console.log(await fetchWord().then((val) => val));
-    console.log(await fetchWord().then((val) => val));
-    console.log(await fetchWord().then((val) => val));
-    console.log(await fetchWord().then((val) => val));
+  async function logWords(): Promise<void> {
+    console.log(await fetchWord().then((val: string) => val));
+    console.log(await fetchWord().then((val: string) => val));
+    console.log(await fetchWord().then((val: string) => val));
+    console.log(await fetchWord().then((val: string) => val));
   }
 
   logWords();

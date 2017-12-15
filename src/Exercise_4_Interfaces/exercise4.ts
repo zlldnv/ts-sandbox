@@ -1,5 +1,5 @@
 // ⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇
-// ⏆⏆ Exercise 4 – Interfaces ⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆
+//   Exercise 4 – Interfaces
 // ⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈
 
 // Objectives: 
@@ -9,7 +9,7 @@
 
 export default () => {
   // ======== Exercise 4.1 ========
-  // Goals:
+  // Instructions:
   // • Create an interface `CartItem` and replace the param's type with it
   // • Make variantId optional
 
@@ -20,7 +20,7 @@ export default () => {
   addToCart({id: 1, title: 'Concrete shoes'});
 
   // ======== Exercise 4.2 ========
-  // Goals:
+  // Instructions:
   // • Create and implement an interface on `Person` to ensure it always has accessible
   //   `name` and `age` member properties.
 
@@ -33,11 +33,11 @@ export default () => {
   console.log('[Exercise 4.2]', `${jane.name} is ${jane.age} years old.`);
 
   // ======== Exercise 4.3 ========
-  // Goals:
+  // Instructions:
   // • Create an interface `Coords` that has numeric `latitude` and `longitude` properties.
   // • Extend the existing interface `City` (without modifying it inline) by adding a
   //   `coords` property of type `Coords`.
-  // • Fix whatever is wrong with `tampa` (besides the fact it's Tampa 😉).
+  // • Fix whatever is wrong with `tampa`
 
   // [do not edit] (pretend this is coming from external `foo.d.ts` lib)
   interface City {
@@ -66,11 +66,10 @@ export default () => {
     return `${city.name.toUpperCase()} is located at ${coords}.`;
   }
 
-  // console.log('[Exercise 4.3]', `${getCityInfo(montreal)} \n\n ${getCityInfo(tampa)}`);
+  console.log('[Exercise 4.3]', `${getCityInfo(montreal)} \n\n ${getCityInfo(tampa)}`);
 
   // ======== Exercise 4.3 ========
-  // Goals:
-  // • 
+  // The purpose of this exercise is simply to illustrate a use of `readonly`
 
   interface UserSchema {
     readonly id: number;
@@ -83,8 +82,10 @@ export default () => {
 
   const user = new User('Dog', 1);
 
-  user.name = 'Harold';
-  user.id = 5;
+  console.log(user.id); // readable
+
+  user.name = 'Harold'; // writable
+  user.id = 5; // not writable
 
   console.log(`User:`, user)
 }

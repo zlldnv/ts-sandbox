@@ -1,5 +1,5 @@
 // ⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇
-// ⏆⏆ Exercise 4 – Interfaces ⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆
+//   Solution 4 – Interfaces
 // ⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈
 
 // Objectives: 
@@ -8,8 +8,8 @@
 // • Differentiate type aliases from interfaces
 
 export default () => {
-  // ======== Exercise 4.1 ========
-  // Goals:
+  // ======== Solution 4.1 ========
+  // Instructions:
   // • Create an interface `CartItem` and replace the param type with it
   // • Make variantId optional
 
@@ -20,13 +20,13 @@ export default () => {
   }
 
   function addToCart(item: CartItem) {
-    console.log('[Exercise 4.1]', `Adding "${item.title}" to cart`);
+    console.log('[Solution 4.1]', `Adding "${item.title}" to cart`);
   }
 
   addToCart({ id: 1, title: 'Concrete shoes' })
 
-  // ======== Exercise 4.2 ========
-  // Goals:
+  // ======== Solution 4.2 ========
+  // Instructions:
   // • Create and implement an interface on `Person` to ensure it always has accessible
   //   `name` and `age` member properties.
 
@@ -41,10 +41,10 @@ export default () => {
 
   const jane = new Person('Jane', 31);
 
-  console.log('[Exercise 4.2]', `${jane.name} is ${jane.age} years old.`);
+  console.log('[Solution 4.2]', `${jane.name} is ${jane.age} years old.`);
 
-  // ======== Exercise 4.3 ========
-  // Goals:
+  // ======== Solution 4.3 ========
+  // Instructions:
   // • Create an interface `Coords` that has numeric `latitude` and `longitude` properties.
   // • Extend the existing interface `City` (without modifying it inline) by adding a
   //   `coords` property of type `Coords`.
@@ -86,5 +86,5 @@ export default () => {
     return `${city.name.toUpperCase()} is located at ${coords}.`;
   }
 
-  console.log('[Exercise 4.3]', `${getCityInfo(montreal)} \n\n ${getCityInfo(tampa)}`);
+  console.log('[Solution 4.3]', `${getCityInfo(montreal)} \n\n ${getCityInfo(tampa)}`);
 }
