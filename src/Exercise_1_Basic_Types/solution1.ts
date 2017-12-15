@@ -1,10 +1,15 @@
 // ⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇
-// ⏆⏆ Solution 1 – Basic Types ⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆
+//   Solution 1 – Basic Types
 // ⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈
+
+// Objectives: 
+// • Annotate primitive types, arrays, and 'any' types
+// • Identify when type checking happens
+// • Afterwards we will analyze transpiler output
 
 export default () => {
   // ======== Solution 1.1 ========
-  // Goals:
+  // Instructions:
   // • Fix errors
 
   let pi = 3.14159;
@@ -13,36 +18,26 @@ export default () => {
   console.log('[Solution 1.1]', `${tau} is ${pi} times two.`);
 
   // ======== Solution 1.2 ========
-  // Goals:
-  // • Fix type annotations
+  // Instructions:
+  // • Inspect type of `pie`
+  // • Add an explicit type annotation to `pie`
+  // • Try assigning invalid types, for fun
 
   let pie: string;
-
   pie = 'blueberry';
 
   console.log('[Solution 1.2]', `I like to eat ${pie}-flavored pie.`);
 
   // ======== Solution 1.3 ========
-  // Goals:
-  // • Add type annotations (as explicit as possible)
-  // • Look how bad the code completion is w/ `any` type 😱
+  // Instructions:
+  // • Inspect the error, then fix it.
 
-  let isReady: boolean;
-  isReady = true;
+  let isMark: boolean = true;
 
-  console.log('[Solution 1.3]', `You are ${isReady ? 'ready' : 'not ready'} to learn TypeScript!`);
+  console.log('[Solution 1.3]', `${isMark ? 'Oh, hi Mark' : 'Who are you?'}`);
 
   // ======== Solution 1.4 ========
-  // • Fix mistyped values
-  // • Add type annotations (as explicit as possible)
-
-  let isMark: boolean;
-  isMark = true;
-
-  console.log('[Solution 1.4]', `${isMark ? 'Oh, hi Mark' : 'Who are you?'}`);
-
-  // ======== Solution 1.5 ========
-  // Goals:
+  // Instructions:
   // • Add type annotations (as explicit as possible)
   // • Fix errors (if applicable)
 
@@ -70,23 +65,21 @@ export default () => {
 
   members[0] = 12345;
 
-  console.log('[Solution 1.5]', members);
+  console.log('[Solution 1.4]', members);
 
-  // ======== Solution 1.6 ========
-  // Goal:
+  // ======== Solution 1.5 ========
+  // Instructions:
   // • Add type annotations (as explicit as possible)
   // • Fix errors (if applicable)
 
   const sequence: number[] = Array.from(Array(10).keys());
   const animals: string[] = ['pangolin', 'aardvark', 'echidna', 'binturong'];
   const stringsAndNumbers: (number | string)[] = [1, 'one', 2, 'two', 3, 'three'];
+  const allMyArrays: (number | string)[][] = [sequence, animals, stringsAndNumbers];
 
-  // extra credit
-  const allMyArrays: (string | number)[][] = [sequence, animals, stringsAndNumbers];
+  console.log('Solution 1.5', allMyArrays);
 
-  console.log(allMyArrays);
-
-  // ======== Solution 1.7 ========
+  // ======== Solution 1.6 ========
   // Goal:
   // • Add type annotations (as explicit as possible)
   // • Fix errors (if applicable)
@@ -99,9 +92,9 @@ export default () => {
   // later we destructure it
   const [name, qty] = inventoryItem;
 
-  const msg = addInventory(name, Math.abs(qty));
+  const msg = addInventory(name, qty);
 
-  console.log('[Solution 1.7]', msg);
+  console.log('[Solution 1.6]', msg);
 
   function addInventory(name: string, quantity: number): string {
     return `Added ${quantity} ${name}s to inventory.`;

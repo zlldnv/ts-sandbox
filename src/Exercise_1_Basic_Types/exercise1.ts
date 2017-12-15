@@ -1,15 +1,15 @@
 // ⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇
-// ⏆⏆ Exercise 1 – Basic Types ⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆
+//   Exercise 1 – Basic Types
 // ⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈
 
 // Objectives: 
 // • Annotate primitive types, arrays, and 'any' types
-// • Analyze transpiler output
 // • Identify when type checking happens
+// • Afterwards we will analyze transpiler output
 
 export default () => {
   // ======== Exercise 1.1 ========
-  // Goals:
+  // Instructions:
   // • Fix errors
  
   let pi = '3.14159';
@@ -18,38 +18,26 @@ export default () => {
   console.log('[Exercise 1.1]', `${tau} is ${pi} times two.`);
 
   // ======== Exercise 1.2 ========
-  // Goals:
-  // • Fix type annotations
+  // Instructions:
+  // • Inspect type of `pie`
+  // • Add an explicit type annotation to `pie`
+  // • Try assigning invalid types, for fun
 
-  let pie: symbol;
-  
+  let pie;
   pie = 'blueberry';
 
   console.log('[Exercise 1.2]', `I like to eat ${pie}-flavored pie.`);
 
   // ======== Exercise 1.3 ========
-  // Goals:
-  // • Add a `boolean` type annotation
-  // • Look how bad the code completion is w/ `any` type 😱
-  
-  let isReady;      // inspect the default type by hovering over `isReady`
-  isReady = true;   // should be ok
-  isReady = 1;      // should error
-  isReady = 'true'; // should error
-
-  console.log('[Exercise 1.3]', `You are ${isReady ? 'ready' : 'not ready'} to learn TypeScript!`);
-
-  // ======== Exercise 1.4 ========
-  // • Fix mistyped values
+  // Instructions:
+  // • Inspect the error, then fix it.
 
   let isMark: boolean;
-  isMark = 'true';
-  isMark = 0;
 
-  console.log('[Exercise 1.4]', `${isMark ? 'Oh, hi Mark' : 'Who are you?'}`);
+  console.log('[Exercise 1.3]', `${isMark ? 'Oh, hi Mark' : 'Who are you?'}`);
 
-  // ======== Exercise 1.5 ========
-  // Goals:
+  // ======== Exercise 1.4 ========
+  // Instructions:
   // • Add type annotations (as explicit as possible)
   // • Fix errors (if applicable)
 
@@ -77,23 +65,21 @@ export default () => {
 
   members[0] = '12345';
 
-  console.log('[Exercise 1.5]', members);
+  console.log('[Exercise 1.4]', members);
 
-  // ======== Exercise 1.6 ========
-  // Goal:
+  // ======== Exercise 1.5 ========
+  // Instructions:
   // • Add type annotations (as explicit as possible)
   // • Fix errors (if applicable)
 
   const sequence = Array.from(Array(10).keys());
   const animals = ['pangolin', 'aardvark', 'echidna', 'binturong'];
   const stringsAndNumbers = [1, 'one', 2, 'two', 3, 'three'];
-
-  // extra credit
   const allMyArrays = [sequence, animals, stringsAndNumbers];
 
-  console.log(allMyArrays);
+  console.log('Exercise 1.5', allMyArrays);
 
-  // ======== Exercise 1.7 ========
+  // ======== Exercise 1.6 ========
   // Goal:
   // • Add type annotations (as explicit as possible)
   // • Fix errors (if applicable)
@@ -108,7 +94,7 @@ export default () => {
 
   const msg = addInventory(name, qty);
 
-  console.log('[Exercise 1.7]', msg);
+  console.log('[Exercise 1.6]', msg);
 
   function addInventory(name: string, quantity: number): string {
     return `Added ${quantity} ${name}s to inventory.`;
