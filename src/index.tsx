@@ -1,5 +1,5 @@
 // ⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇
-// ⏆⏆ Exercises ⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆
+//   Exercises
 // ⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈
 
 // To keep the console relatively clean, you may
@@ -27,12 +27,9 @@ exercise1();
 // import exercise5 from './Exercise_5_Code_Flow/exercise5';
 // exercise5();
 
-// TBD...
-// import exercise6 from './exercise6';
-// exercise6();
 
 // ⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇
-// ⏆⏆ Solutions ⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆
+//   Solutions
 // ⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈
 
 // To keep the console relatively clean, you may
@@ -41,25 +38,21 @@ exercise1();
 // Now, ready to do you some TypeScript?!
 
 // ======== Solution 1: Basic types ========
-// import solution1 from './solutions/solution1';
+// import solution1 from './Exercise_1_Basic_Types/solution1';
 // solution1();
 
 // ======== Solution 2: Functions ==========
-// import solution2 from './solutions/solution2';
+// import solution2 from './Exercise_2_Functions/solution2';
 // solution2();
 
 // ======== Solution 3: Classes ============
-// import solution3 from './solutions/solution3';
+// import solution3 from './Exercise_3_Classes/solution3';
 // solution3();
 
 // ======== Solution 4: Interfaces =========
-// import solution4 from './solutions/solution4';
+// import solution4 from './Exercise_4_Interfaces/solution4';
 // solution4();
 
 // ======== Solution 5: Code flow  =========
-// import solution5 from './solutions/solution5';
+// import solution5 from './Exercise_5_Code_Flow/solution5';
 // solution5();
-
-// TBD...
-// import solution6 from './solutions/solution6';
-// solution6();

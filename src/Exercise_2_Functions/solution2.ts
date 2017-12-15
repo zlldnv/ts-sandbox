@@ -1,10 +1,16 @@
 // ⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇
-// ⏆⏆ Solution 2 – Functions ⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆⏆
+//   Exercise 2 – Functions
 // ⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈
 
+// Objectives: 
+// • Convert existing JavaScript functions to TypeScript
+// • Understand functions as types
+// • Convert specifically-typed functions to more
+//   flexible generic functions
+
 export default () => {
-  // ======== Solution 2.1 ========
-  // Goals:
+  // ======== Exercise 2.1 ========
+  // Instructions:
   // • Add explicit parameter types and return type
   // • Fix any errors resulting from invalid types
 
@@ -12,16 +18,16 @@ export default () => {
     return x + y;
   }
 
-  function sum(numbers: number[]) {
+  function sumArray(numbers: number[]): number {
     return numbers.reduce(add, 0);
   }
 
-  const someSum = sum([1, 2, 3]);
+  const someSum: number = sumArray([3, 6, 9]);
 
-  console.log('[Solution 2.1]', `The sum of [1, 2, 3] === ${someSum}`);
+  console.log('[Exercise 2.1]', `3 + 6 + 9 == ${someSum}`);
 
-  // ======== Solution 2.2 ========
-  // Goals:
+  // ======== Exercise 2.2 ========
+  // Instructions:
   // • Add explicit parameter types and return types to the `deposit` function
   // • Make the function's `message` parameter *optional*
 
@@ -36,120 +42,21 @@ export default () => {
   };
 
   bankAccount.deposit(20);
-  bankAccount.deposit(10, 'Deposit received')
+  bankAccount.deposit(10, 'Deposit received');
 
-  console.log('[Solution 2.2]', `Account value: $${bankAccount.money}`);
+  console.log('[Exercise 2.2]', `Account value: $${bankAccount.money}`);
 
-  // ======== Solution 2.3 ========
-  // Goals:
-  // • Add explicit parameter types and return types
-  // • Addign a default greeting: "Hello!"
-
-  function greet(greeting: string = 'Hello!'): string {
-    return greeting;
-  }
-
-  const defaultGreeting = greet();
-  const ptGreeting = greet('Oi como vai!');
-
-  console.log('[Solution 2.3]', defaultGreeting, ptGreeting);
-
-  // ======== Solution 2.4 ========
-  // Goals:
-  // • Add parameter type annotation
-  // • Even though this function doesn't return, add an explicit return type
-
-  function logMessage(message: string): void {
-    console.log(message);
-  }
-
-  logMessage('[Solution 2.4] ✅');
-
-  // ======== Solution 2.5 ========
-  // Here we've initialized two variables with function types
-  // Goals:
-  // • Fix the errors
-
-  let myMultiply: (val1: number, val2: number) => number;
-  let myEchoString: (val: string) => string;
-
-  myMultiply = function(x: number, y: number): number {
-    return x * y;
-  }
-
-  myEchoString = function(message: string): string {
-    return message;
-  }
-
-  console.log('[Solution 2.5]', myEchoString(`5 x 5 equals ${myMultiply(5, 5)}`));
-
-  // ======== Solution 2.6 ========
-  // Goals:
-  // • Make `echo` into a generic function.
-  // • Once made generic, the below examples should highlight as compile-time errors.
-  // • Compare the editor's code completion for the generic function to that of the 
-  //   original function that used `any`.
-  // • Finally, fix the values 
-
-  function echo<T>(value: T): T {
-    return value;
-  }
-
-  // These should be caught by TypeScript (instead of causing runtime errors!):
-  const two: string = echo<string>('234').charAt(0);
-  const twoExp: string = echo<number>(2).toExponential();
-  const ULL: string = echo<string>('null').toUpperCase().substr(1);
-
-  console.log('[Solution 2.6]', two, twoExp, ULL);
-
-  // ======== Solution 2.7 (EXTRA CREDIT) ========
-  // Currently, our function `addItemToCollection` accepts *any* item and adds it,
-  // (indiscriminantly) to *any* kind of array.
-  //
-  // A couple problems with this:
-  // 
-  //     1. The `any` type causes us to lose ALL typing information on our params.
-  //     2. This looseness has come back to back to bite us during runtime. (Just 
-  //        look at `incrementByTwo`!)
-  //
-  // Goals:
-  // • Implement `addItemToCollection` as a generic function. (This should create
-  //   compile-time errors in places where incorrect values are being added to 
-  //   a given collection. Fix these values to the correct types.)
-  // • Once made generic, `addItemToCollection` should be *generic* enough to operate
-  //   on items and collections of any type while continuing to enforce that they match.
-
-  const numberCollection: number[] = [];
-  const stringCollection: string[] = [];
-
-  function addItemToCollection<T>(item: T, collection: T[]): T[] {
-    collection.push(item);
-    return collection;
-  }
-
-  // Add some stuff
-  addItemToCollection('🏚', stringCollection);
-  addItemToCollection('horse', stringCollection);
-
-  addItemToCollection(1, numberCollection);
-  addItemToCollection(2, numberCollection);
-  addItemToCollection(3, numberCollection);
-
-  const incrementedByTwo = numberCollection.map((num) => num + 2);
-
-  console.log('[Solution 2.7]', `[${incrementedByTwo}] should deeply equal [3,4,5]`);
-
-  // ======== Solution 2.8 (EXTRA CREDIT) ========
-  // For a given word, we are computing its Scrabble® score.
-  // Goals:
+  // ======== Exercise 2.3 ========
+  // For a given word, we compute its Scrabble® score.
+  // Instructions:
   // • Add type annotations wherever possible
 
   function computeScore(word: string): number {
     const letters: string[] = word.toUpperCase().split('');
-    return letters.reduce((accum, curr) => accum += getPointsFor(curr), 0);
+    return letters.reduce((accum: number, curr: string) => accum += getPointsFor(curr), 0);
   }
 
-  function getPointsFor(letter: string): number {
+  function getPointsFor(letter: string) {
     const lettersAndPoints: [string, number][] = [
       ['AEOIULNRST', 1],
       ['DG', 2],
@@ -160,14 +67,96 @@ export default () => {
       ['QZ', 10],
     ];
 
-    return lettersAndPoints.reduce((computedScore: number, pointsTuple: [string, number]): number => {
+    return lettersAndPoints.reduce((computedScore: number, pointsTuple: [string, number]) => {
       const [letters, score]: [string, number] = pointsTuple;
-      if (letters.split('').find((ll: string): boolean => ll === letter)) {
+      if (letters.split('').find((ll) => ll === letter)) {
         return computedScore += score;
       }
       return computedScore;
     }, 0);
   }
 
-  console.log('[Solution 2.8]', `zoo is worth ${computeScore('zoo')} points.`);
+  console.log('[Exercise 2.8]', `zoo is worth ${computeScore('zoo')} points.`);
+
+  // ======== Exercise 2.4 ========
+  // Instructions:
+  // • Add explicit parameter types and return types
+  // • Add a default greeting: "hello"
+
+  function greet(greeting: string = 'hello') {
+    return greeting.toUpperCase();
+  }
+
+  const defaultGreeting = greet();
+  const portugueseGreeting = greet('Oi como vai!');
+
+  console.log('[Exercise 2.4]', defaultGreeting, portugueseGreeting);
+
+  // ======== Exercise 2.4 ========
+  // Instructions:
+  // • Add parameter type annotation
+  // • Even though this function doesn't return, add an explicit return type
+
+  function layEggs(quantity: number, color: string): void {
+    console.log(`[Exercise 2.5] You just laid ${quantity} ${color} eggs. Good job!`);
+  }
+
+  layEggs(10, 'blue');
+
+  // ======== Exercise 2.6 ========
+  // Here we've initialized two variables with function types.
+  // Later we assign them to functions.
+  // Instructions:
+  // • Fix the errors
+
+  let multiply: (val1: number, val2: number) => number;
+  let capitalize: (val: string) => string;
+
+  capitalize = function (value: string): string {
+    return `${value.charAt(0).toUpperCase()}${value.slice(1)}`;
+  }
+
+  multiply = function (x: number, y: number): number {
+    return x * y;
+  }
+
+  console.log('[Exercise 2.6]', capitalize(`nifty ${multiply(5, 10)}`));
+
+  // ======== Exercise 2.7 ========
+  // Currently, our function `pushToCollection` accepts *any* item and adds it,
+  // (indiscriminantly) to *any* kind of array.
+  //
+  // A couple problems with this:
+  // 
+  //     1. The `any` type causes us to lose ALL typing information on our params.
+  //     2. This looseness has come back to back to bite us during runtime. (Just 
+  //        look at `incrementByTwo`!)
+  //
+  // Instructions:
+  // • Implement `pushToCollection` as a generic function. (This should create
+  //   compile-time errors in places where incorrect values are being added to 
+  //   a given collection. Fix these values to the correct types.)
+  // • Once made generic, `pushToCollection` should be *generic* enough to operate
+  //   on items and collections of any type while continuing to enforce that they match.
+
+  const numberCollection: number[] = [];
+  const stringCollection: string[] = [];
+
+  function pushToCollection<T>(item: T, collection: T[]): T[] {
+    collection.push(item);
+    return collection;
+  }
+
+  // Add some stuff to the collections
+  pushToCollection('false', stringCollection);
+  pushToCollection('hi', stringCollection);
+  pushToCollection('[]', stringCollection);
+
+  pushToCollection(1, numberCollection);
+  pushToCollection(2, numberCollection);
+  pushToCollection(3, numberCollection);
+
+  const incrementedByTwo = numberCollection.map((num) => num + 2);
+
+  console.log('[Exercise 2.7]', `[${incrementedByTwo}] should deeply equal [3,4,5]`);
 }
