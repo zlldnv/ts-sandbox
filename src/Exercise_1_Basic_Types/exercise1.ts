@@ -10,7 +10,9 @@
 export default () => {
   // ======== Exercise 1.1 ========
   // Instructions:
-  // • Fix errors
+  // • Hover over red squigglies to inspect the TS errors.
+  // • Hover over variables to inspect their types.
+  // • Fix the error on line 18 by changing the value of pi to the expected type.
  
   let pi = '3.14159';
   let tau = pi * 2;
@@ -45,7 +47,7 @@ export default () => {
   const float = 6.66;
   const hex = 0xf00d;
   const binary = 0b1010011010;
-  const octal = 0o944;
+  const octal = 0o744;
   const negZero = -0;
   const actuallyNumber = NaN;
   const largestNumber = Number.MAX_VALUE;
