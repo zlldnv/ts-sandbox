@@ -61,36 +61,46 @@ export default () => {
 
   // ======== Exercise 3.4 ========
   // Goals:
-  // • Make the Dog class inherit from Animal
-  // • Make the Cat class inherit from Animal
-  // • Make it so that the sound member cannot be publicly accessed
+  // • Add complete typing
+  // • Make the Snake class inherit from Animal
+  // • Make the Horse class inherit from Animal
+  // • Make it so that the name member cannot be publicly accessed
 
   class Animal {
-    constructor(sound) {}
-    speak() {
-      console.log('[Exercise 3.4]', this.sound);
+    constructor(name) {}
+    move(meters) {
+      console.log(`${this.name} moved ${meters}m.`);
     }
   }
 
-  class Dog {
-    constructor() {
-      super('woof!');
+  class Snake {
+    move(meters) {
+      console.log('Slithering...');
+      // should call on parent's `move` method, w/ a default
+      // slither of 5 meters
     }
   }
 
-  class Cat {
-    constructor() {
-      super('meow!');
+  class Pony {
+    move(meters) {
+      console.log('Galloping...');
+      // should call on parent's `move` method, w/ a default
+      // gallop of 60 meters
     }
   }
 
-  const dog = new Dog();
-  dog.speak();
-  console.log(dog.sound); // Should return error
+  // The class Animal should not be instantiable.
+  // Delete or comment out once the desired error is achieved.
+  const andrew = new Animal("Andrew the Animal");
+  andrew.move(5);
 
-  const cat = new Cat();
-  cat.speak();
-  console.log(cat.sound); // Should return error
+  const sammy = new Snake("Sammy the Snake");
+  sammy.move();
+  console.log(sammy.name); // Should return error
+
+  const pokey = new Pony("Pokey the Pony");
+  pokey.move(34);
+  console.log(pokey.name); // Should return error
 
   // ======== Exercise 3.5 ========
   // Goals:

@@ -59,36 +59,39 @@ export default () => {
 
   // ======== Exercise 3.4 ========
   // Goals:
-  // • Make the Dog class inherit from Animal
-  // • Make the Cat class inherit from Animal
-  // • Make it so that the sound member cannot be publicly accessed
+  // • Add complete typing
+  // • Make the Snake class inherit from Animal
+  // • Make the Horse class inherit from Animal
+  // • Make it so that the name member cannot be publicly accessed
 
-  class Animal {
-    constructor(private sound: string) {}
-    speak() {
-      console.log('[Exercise 3.4]', this.sound);
+  abstract class Animal {
+    constructor(private name: string) {}
+    move(meters: number) {
+      console.log(`${this.name} moved ${meters}m.`);
     }
   }
 
-  class Dog extends Animal {
-    constructor() {
-      super('woof!');
+  class Snake extends Animal {
+    move(meters: number = 5) {
+      console.log('Slithering...');
+      super.move(meters);
     }
   }
 
-  class Cat extends Animal {
-    constructor() {
-      super('meow!');
+  class Pony extends Animal {
+    move(meters: number = 60) {
+      console.log('Galloping...');
+      super.move(meters);
     }
   }
 
-  const dog = new Dog();
-  dog.speak();
-  // console.log(dog.sound); // Should return error (when uncommented)
+  const sammy: Snake = new Snake('Sammy the Snake');
+  sammy.move();
+  // console.log(sammy.name); // Should return error (when uncommented)
 
-  const cat = new Cat();
-  cat.speak();
-  // console.log(cat.sound); // Should return error (when uncommented)
+  const pokey: Pony = new Pony('Pokey the Pony');
+  pokey.move(34);
+  // console.log(pokey.name); // Should return error (when uncommented)
 
   // ======== Exercise 3.5 ========
   // Goals:
