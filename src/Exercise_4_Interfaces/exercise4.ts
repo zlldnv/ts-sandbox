@@ -68,7 +68,7 @@ export default () => {
 
   console.log('[Exercise 4.3]', `${getCityInfo(montreal)} \n\n ${getCityInfo(tampa)}`);
 
-  // ======== Exercise 4.3 ========
+  // ======== Exercise 4.4 ========
   // The purpose of this exercise is simply to illustrate a use of `readonly`
 
   interface UserSchema {

@@ -92,7 +92,7 @@ export default () => {
 
   console.log('[Exercise 2.4]', defaultGreeting, portugueseGreeting);
 
-  // ======== Exercise 2.4 ========
+  // ======== Exercise 2.5 ========
   // Instructions:
   // • Add parameter type annotation
   // • Even though this function doesn't return, add an explicit return type
