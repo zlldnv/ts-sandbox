@@ -117,6 +117,7 @@ export default () => {
   // add type alias(es) here
   type BirdLike = Flyer & EggLayer;
   type FishLike = Swimmer & EggLayer;
+  type Animal = Bird | Fish;
 
   class Bird implements BirdLike {
     constructor(public species: string) { }
@@ -143,7 +144,7 @@ export default () => {
   }
 
   function getRandomAnimal() {
-    const animals = [
+    const animals: Animal[] = [
       new Bird('puffin'),
       new Bird('kittiwake'),
       new Fish('sea robin'),
@@ -153,7 +154,7 @@ export default () => {
     return animals[Math.floor(Math.random() * animals.length)];
   }
 
-  function interrogateAnimal(animal = getRandomAnimal()) {
+  function interrogateAnimal(animal: Animal = getRandomAnimal()) {
     if (animal instanceof Fish) {
       animal.swim(10); // call only if it is a fish
     } else if (animal instanceof Bird) {

@@ -61,7 +61,7 @@ export default () => {
   // Goals:
   // • Add complete typing
   // • Make the Snake class inherit from Animal
-  // • Make the Horse class inherit from Animal
+  // • Make the Pony class inherit from Animal
   // • Make it so that the name member cannot be publicly accessed
 
   abstract class Animal {
@@ -95,7 +95,7 @@ export default () => {
 
   // ======== Exercise 3.5 ========
   // Goals:
-  // • Make it so that the only the Desk and Chair classes can see the 
+  // • Make it so that only the Desk and Chair classes can see the 
   //   manufacturer member
 
   class Furniture {
@@ -124,7 +124,7 @@ export default () => {
 
   // ======== Exercise 3.6 ========
   // Goals:
-  // • Eliminate the error in the introduction method
+  // • Eliminate the error without changing references to `Student.school`
 
   class Student {
     school: string = 'Harry Herpson High School';

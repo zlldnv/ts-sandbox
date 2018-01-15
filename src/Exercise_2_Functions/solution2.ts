@@ -76,7 +76,7 @@ export default () => {
     }, 0);
   }
 
-  console.log('[Exercise 2.8]', `zoo is worth ${computeScore('zoo')} points.`);
+  console.log('[Exercise 2.3]', `zoo is worth ${computeScore('zoo')} points.`);
 
   // ======== Exercise 2.4 ========
   // Instructions:
