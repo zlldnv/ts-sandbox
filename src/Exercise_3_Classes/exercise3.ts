@@ -1,32 +1,30 @@
 // ⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇⏇
-//    Exercise 3 – Classes
+//    Упражнение 3 Классы
 // ⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈⏈
 
-// Objectives: 
-// • Create classes with typed properties and methods
-// • Add access modifiers to class members
+// Цели:
+// • Создание классов с типизированными свойствами и методами
+// • Добавить модификаторы доступа к членам класса
 
 export default () => {
-
-  // ======== Exercise 3.1 ========
-  // Goals:
-  // • Add explicit parameter type to the greet method
-  // • Add explicit return type to the greet method
+  // ======== Упражнение 3.1 ========
+  // Цели:
+  // • Добавить явный тип параметра в метод greet
+  // • Добавить явный тип возврата в метод greet
 
   class MC {
-    greet(event = 'party') {
+    greet(event = "party") {
       return `Welcome to the ${event}`;
     }
   }
 
   const mc = new MC();
-  console.log('[Exercise 3.1]', mc.greet('show'));
+  console.log("[Exercise 3.1]", mc.greet("show"));
 
-
-  // ======== Exercise 3.2 ========
-  // Goals:
-  // • Add explicit parameter types to constructor
-  // • Add typed parameters for storing values
+  // ======== Упражнение 3.2 ========
+  // Цели:
+  // • Добавить явные типы параметров в конструктор
+  // • Добавляем типизированные параметры для хранения значений
 
   class Person {
     constructor(name, age) {
@@ -35,15 +33,14 @@ export default () => {
     }
   }
 
-  const jane = new Person('Jane', 31);
+  const jane = new Person("Jane", 31);
 
-  console.log('[Exercise 3.2]', `The new person's name is ${jane.name}.`);
+  console.log("[Exercise 3.2]", `The new person's name is ${jane.name}.`);
 
-
-  // ======== Exercise 3.3 ========
-  // Goals:
-  // • Explicitly make the title and salary properties publicly available
-  // • Reduce class to three lines of code while maintaining functionality
+  // ======== Упражнение 3.3 ========
+  // Цели:
+  // • Явно делаем свойства title и salary общедоступными
+  // • Сокращение класса до трех строк кода при сохранении функциональности
 
   class Employee {
     title: string;
@@ -54,17 +51,19 @@ export default () => {
     }
   }
 
-  const employee = new Employee('Engineer', 100000);
+  const employee = new Employee("Engineer", 100000);
 
-  console.log('[Exercise 3.3]', `The new employee's title is ${employee.title} and they earn $ ${employee.salary}.`);
+  console.log(
+    "[Exercise 3.3]",
+    `The new employee's title is ${employee.title} and they earn $ ${employee.salary}.`
+  );
 
-
-  // ======== Exercise 3.4 ========
-  // Goals:
-  // • Add complete typing
-  // • Make the Snake class inherit from Animal
-  // • Make the Pony class inherit from Animal
-  // • Make it so that the name member cannot be publicly accessed
+  // ======== Упражнение 3.4 ========
+  // Цели:
+  // • Добавить полный набор
+  // • Сделать класс Snake наследуемым от Animal
+  // • Сделать класс Pony наследуемым от Animal
+  // • Сделать так, чтобы имя члена не было общедоступным
 
   class Animal {
     constructor(name) {}
@@ -75,15 +74,15 @@ export default () => {
 
   class Snake {
     move(meters) {
-      console.log('Slithering...');
-      // should call on parent's `move` method, w/ a default
-      // slither of 5 meters
+      console.log("Slithering...");
+      // должен вызвать метод родителя `move`, с / a по умолчанию
+      // скольжение 5 метров
     }
   }
 
   class Pony {
     move(meters) {
-      console.log('Galloping...');
+      console.log("Galloping...");
       // should call on parent's `move` method, w/ a default
       // gallop of 60 meters
     }
@@ -102,24 +101,30 @@ export default () => {
   pokey.move(34);
   console.log(pokey.name); // Should return error
 
-  // ======== Exercise 3.5 ========
+  // ======== Упражнение 3.5 ========
   // Goals:
-  // • Make it so that only the Desk and Chair classes can see the 
+  // • Make it so that only the Desk and Chair classes can see the
   //   manufacturer member
 
   class Furniture {
-    constructor(manufacturer: string = 'IKEA') {}
+    constructor(manufacturer: string = "IKEA") {}
   }
 
   class Desk extends Furniture {
     kind() {
-      console.log('[Exercise 3.5]', `This is a desk made by ${this.manufacturer}`);
+      console.log(
+        "[Exercise 3.5]",
+        `This is a desk made by ${this.manufacturer}`
+      );
     }
   }
 
   class Chair extends Furniture {
     kind() {
-      console.log('[Exercise 3.5]', `This is a chair made by ${this.manufacturer}`);
+      console.log(
+        "[Exercise 3.5]",
+        `This is a chair made by ${this.manufacturer}`
+      );
     }
   }
 
@@ -131,19 +136,22 @@ export default () => {
   chair.kind();
   chair.manufacturer; // Should return error
 
-  // ======== Exercise 3.6 ========
+  // ======== Упражнение 3.6 ========
   // Goals:
   // • Eliminate the error without changing references to `Student.school`
 
   class Student {
-    public school: string = 'Harry Herpson High School';
-    constructor(private name: string) {};
+    public school: string = "Harry Herpson High School";
+    constructor(private name: string) {}
     introduction() {
-      console.log('[Exercise 3.6]', `Hi, my name is ${this.name} and I attend ${Student.school}`);
+      console.log(
+        "[Exercise 3.6]",
+        `Hi, my name is ${this.name} and I attend ${Student.school}`
+      );
     }
   }
 
-  const student = new Student('Morty');
+  const student = new Student("Morty");
   console.log(Student.school);
   student.introduction();
-}
+};
